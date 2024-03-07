@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UploadExcelController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('upload-excel', [UploadExcelController::class, 'show']);
+
+Route::post('/import', [UploadExcelController::class, 'import'])->name('excel.import');
+
